@@ -15,25 +15,27 @@ std::vector<std::string> load_input(int day) {
 	std::string line;
 	std::vector<std::string> lines;
 	file.open(input_path, std::ifstream::in);
-	while (file.good()) {
+	while (!file.eof()) {
 		getline(file, line);
 		lines.push_back(line);
 	}
+	lines.pop_back();
 
 	file.close();
 	return lines;
 }
 
 void run_day(int day) {
-	int result = 0;
+	Answer result;
 	std::vector<std::string> input = load_input(day);
 
 	switch (day) {
 		case 1:
-			result = day_one();
+			result = day_one(input);
 	}
 
-	std::cout << result << "\n";
+	std::cout << "Part 1: " << result.part_one << "\n";
+	std::cout << "Part 2: " << result.part_two << "\n";
 }
 
 int main(int argc, char* argv[]) {
