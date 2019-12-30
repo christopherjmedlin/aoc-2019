@@ -1,4 +1,4 @@
-objects = main.o dayone.o daytwo.o
+objects = main.o dayone.o daytwo.o daythree.o
 CFLAGS=-DDEBUG
 CC=g++ -g3 $(CFLAGS)
 
