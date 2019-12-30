@@ -15,6 +15,9 @@ std::vector<std::string> load_input(int day) {
 	std::string line;
 	std::vector<std::string> lines;
 	file.open(input_path, std::ifstream::in);
+
+	if (!file.is_open()) { throw "Input file does not exist."; }
+
 	while (!file.eof()) {
 		getline(file, line);
 		lines.push_back(line);
@@ -30,8 +33,10 @@ void run_day(int day) {
 	std::vector<std::string> input = load_input(day);
 
 	switch (day) {
-		case 1:
-			result = day_one(input);
+		case 1: result = day_one(input);
+			break;
+		case 2: result = day_two(input);
+			break;
 	}
 
 	std::cout << "Part 1: " << result.part_one << "\n";
@@ -44,6 +49,10 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 	int day = atoi(argv[1]);
-
-	run_day(day);
+	
+	try {
+		run_day(day);
+	} catch (const char* msg) {
+		std::cerr << msg << std::endl;
+	}
 }

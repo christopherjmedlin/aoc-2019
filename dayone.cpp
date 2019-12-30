@@ -16,7 +16,7 @@ Answer day_one(std::vector<std::string> input) {
 	int part_one, part_two = 0;
 	for (it = input.begin(); it != input.end(); it++) {
 		int mass = std::stoi(*it, nullptr, 10);
-		part_one += mass/3 -2;
+		part_one += mass/3 - 2;
 		part_two += fuel(mass, 0);
 	};
 
