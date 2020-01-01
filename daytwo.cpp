@@ -70,10 +70,10 @@ Answer day_two(std::vector<std::string> input) {
 		if (found) { break; }
 	}
 
+	delete intcode;
+
 	return Answer {
 		part_one: part_one,
 		part_two: 100 * noun + verb
 	};
-
-	delete intcode;
 }
