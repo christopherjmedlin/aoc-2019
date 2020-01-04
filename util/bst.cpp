@@ -78,7 +78,7 @@ Node* bst_remove(int val, Node* head) {
 			// find minimum of right tree
 			int new_val = bst_min(head->right);
 			// remove that minimum node
-			bst_remove(new_val, head->right);
+			head->right = bst_remove(new_val, head->right);
 			node = new Node(new_val);
 			node->right = head->right;
 			node->left = head->left;

@@ -2,6 +2,7 @@
 #include "bst.h"
 
 #include <algorithm>
+#include <iostream>
 
 Line create_line(int x1, int y1, int x2, int y2) {
 	Orientation axis;
@@ -49,7 +50,7 @@ std::vector< std::pair<int, int> > intersections(std::vector<Line> lines) {
 			}
 			// right point of horizontal line
 			if (piter->first == piter->second->x2) {
-				bst = bst_remove(piter->second->y1, bst);
+			    bst = bst_remove(piter->second->y1, bst);
 			}
 		} else {
 			// vertical line
