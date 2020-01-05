@@ -41,7 +41,7 @@ Wire::Wire(std::string dirs) {
 				break;
 			case 'L':
 				horizontal_lines.push_back(
-					create_line(curr_x-dist, curr_y, curr_x, curr_y)
+					create_line(curr_x, curr_y, curr_x-dist, curr_y)
 				);
 				curr_x-=dist;
 				break;
@@ -53,7 +53,7 @@ Wire::Wire(std::string dirs) {
 				break;
 			case 'D':
 				vertical_lines.push_back(
-					create_line(curr_x, curr_y-dist, curr_x, curr_y)
+					create_line(curr_x, curr_y, curr_x, curr_y-dist)
 				);
 				curr_y-=dist;
 				break;

@@ -1,22 +1,14 @@
-#include "catch.hpp"
-
-#include "../util/lines.h"
+#include "catch.hpp" #include "../util/lines.h"
 #include <iostream>
 
 TEST_CASE( "lines" ) {
 	
 	SECTION( "line creation" ) {
 		Line line = create_line(50, 60, 25, 60);
-		REQUIRE(line.x1 == 25);
-		REQUIRE(line.x2 == 50);
 		REQUIRE(line.axis == horizontal);
 		line = create_line(25, 60, 50, 60);
-		REQUIRE(line.x1 == 25);
-		REQUIRE(line.x2 == 50);
 		REQUIRE(line.axis == horizontal);
 		line = create_line(25, 60, 25, 40);
-		REQUIRE(line.y1 == 40);
-		REQUIRE(line.y2 == 60);
 		REQUIRE(line.axis == vertical);
 	};
 
@@ -40,5 +32,20 @@ TEST_CASE( "lines" ) {
 		REQUIRE(points[3] == std::make_pair(2, 1));
 		REQUIRE(points[4] == std::make_pair(2, 2));
 		REQUIRE(points[5] == std::make_pair(4, 2));
-	}
+	};
+
+	SECTION( "point on line" ) {
+		Line line = create_line(1, 3, 10, 3);
+		REQUIRE(point_on_line(line, std::make_pair(2, 3)));
+		REQUIRE(point_on_line(line, std::make_pair(10, 3)));
+		REQUIRE(!point_on_line(line, std::make_pair(11, 3)));
+		REQUIRE(!point_on_line(line, std::make_pair(2, 4)));
+	};
+
+	SECTION( "line length" ) {
+		Line line = create_line(1, 3, 20, 3);
+		REQUIRE(line_length(line) == 19);
+		line = create_line(1, 3, 1, 20);
+		REQUIRE(line_length(line) == 17);
+	};
 };
