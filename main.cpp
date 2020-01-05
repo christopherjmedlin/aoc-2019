@@ -42,6 +42,8 @@ void run_day(int day) {
 			break;
 		case 3: result = day_three(input);
 			break;
+		case 4: result = day_four(input);
+			break;
 	}
 
 	std::cout << "Part 1: " << result.part_one << "\n";

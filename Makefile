@@ -1,4 +1,4 @@
-objects = dayone.o daytwo.o daythree.o util/lines.o \
+objects = dayone.o daytwo.o daythree.o dayfour.o util/lines.o \
 		  util/bst.o
 testobjects = tests/main.o tests/bst.o tests/lines.o
 

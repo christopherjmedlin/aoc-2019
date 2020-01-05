@@ -1,4 +1,5 @@
-#include "catch.hpp" #include "../util/lines.h"
+#include "catch.hpp" 
+#include "../util/lines.h"
 #include <iostream>
 
 TEST_CASE( "lines" ) {
