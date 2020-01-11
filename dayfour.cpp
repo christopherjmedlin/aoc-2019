@@ -1,6 +1,5 @@
 #include "days.h"
 #include <unordered_map>
-#include <iostream>
 
 int repetition_length(std::string str, int index) {
 	std::string::iterator iter = str.begin() + index;
@@ -35,7 +34,6 @@ Answer day_four(std::vector<std::string> input) {
 	int part_two = 0;
 	int lower = stoi(input[0], nullptr, 10);
 	int upper = stoi(input[1], nullptr, 10);
-	std::cout << is_valid_password("223450", 0) << std::endl;
 	for (int i = lower; i <= upper; i++) {
 		if (is_valid_password(std::to_string(i), false)) { part_one++; }
 		if (is_valid_password(std::to_string(i), true)) { part_two++; }
